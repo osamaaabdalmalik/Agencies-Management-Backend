@@ -13,12 +13,6 @@ return new class extends Migration
     {
         Schema::create('agents', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('identify')->unique();
-            $table->string('password');
-            $table->foreignId('course_id')->constrained('courses');
-            $table->foreignId('client_id')->constrained('clients');
-            $table->foreignId('left_id')->nullable()->constrained('agents');
-            $table->foreignId('right_id')->nullable()->constrained('agents');
             $table->timestamps();
         });
     }
