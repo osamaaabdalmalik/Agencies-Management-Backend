@@ -18,6 +18,7 @@ class CulturalLevelSeeder extends Seeder
             'B',
             'C',
         ];
+        CulturalLevel::truncate();
         foreach ($cultural_levels as $cultural_level){
             CulturalLevel::create([
                 'name' => $cultural_level,

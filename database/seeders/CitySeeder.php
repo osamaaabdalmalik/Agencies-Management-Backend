@@ -13,15 +13,21 @@ class CitySeeder extends Seeder
      */
     public function run(): void
     { $cities = [
-        'سوريا',
-        'مصر',
-        'السعودية',
-        'عمان',
+        [
+            'name'=>'سوريا',
+            'governorate_id'=>1
+        ],
+        [
+            'name'=>'مصر',
+            'governorate_id'=>2
+        ],
+        [
+            'name'=>'السعودية',
+            'governorate_id'=>3
+        ],
     ];
         City::truncate();
         foreach ($cities as $city)
-        City::create([
-            'name'=>$city,
-        ]);
+        City::create($city);
     }
 }

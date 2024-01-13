@@ -18,6 +18,7 @@ class GovernorateSeeder extends Seeder
             'دمشق',
             'حماة',
         ];
+        Governorate::truncate();
         foreach ($governorates as $governorate){
             Governorate::create([
                 'name' => $governorate,

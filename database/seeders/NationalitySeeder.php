@@ -18,6 +18,7 @@ class NationalitySeeder extends Seeder
             'فلسطيني',
             'سعودي',
         ];
+        Nationality::truncate();
         foreach ($nationalities as $nationality){
             Nationality::create([
                 'name' => $nationality,

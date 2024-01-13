@@ -14,11 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AgentTypeSeeder::class,
-            CitySeeder::class,
             GovernorateSeeder::class,
+            CitySeeder::class,
             NationalitySeeder::class,
             CulturalLevelSeeder::class,
-            CourseSeeder::class,
         ]);
     }
 }
