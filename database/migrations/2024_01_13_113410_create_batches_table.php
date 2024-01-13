@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('receptionists', function (Blueprint $table) {
+        Schema::create('batches', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name')->nullable();
-            $table->string('full_name');
-            $table->string('phone');
-            $table->string('password');
-            $table->boolean('blocked')->default(0);
+            $table->double('total');
+            $table->foreignId('agent_id')->constrained('agents');
+            $table->foreignId('receptionist_id')->constrained('receptionists');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('receptionists');
+        Schema::dropIfExists('batches');
     }
 };

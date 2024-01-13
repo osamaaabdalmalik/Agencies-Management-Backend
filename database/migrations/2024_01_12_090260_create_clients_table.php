@@ -13,21 +13,22 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name');
+            $table->string('user_name')->nullable();
             $table->string('full_name');
             $table->string('mother_name');
             $table->string('gender');
             $table->date('birth_date');
-            $table->string('phone');
+            $table->string('phone',10);
             $table->string('email');
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->boolean('blocked')->default(0);
             $table->integer('verification_code')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->foreignId('nationality_id')->constrained('nationalities');
             $table->foreignId('cultural_level_id')->constrained('cultural_levels');
             $table->foreignId('governorate_id')->constrained('governorates');
             $table->foreignId('city_id')->constrained('cities');
-            $table->timestamp('email_verified_at')->nullable();
+            $table->foreignId('receptionist_id')->nullable()->constrained('receptionists');
             $table->timestamps();
         });
     }

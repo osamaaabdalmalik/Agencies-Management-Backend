@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('agents', function (Blueprint $table) {
+        Schema::create('batch_children', function (Blueprint $table) {
             $table->id();
+            $table->double('total');
+            $table->foreignId('batch_id')->constrained('batches');
+            $table->foreignId('child_id')->constrained('agents');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('agents');
+        Schema::dropIfExists('batch_children');
     }
 };
