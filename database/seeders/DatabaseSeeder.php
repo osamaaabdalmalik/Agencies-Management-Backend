@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             NationalitySeeder::class,
             CulturalLevelSeeder::class,
+            AgentsSeeder::class,
         ]);
     }
 }
