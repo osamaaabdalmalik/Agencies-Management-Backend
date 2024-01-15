@@ -29,7 +29,7 @@ class AuthAdminController extends Controller
             'user_name'=>['required','string','exists:admins,user_name'],
             'password'=>['required','string','min:6','max:50']
         ]);
-        if ($validation->fails() || !Auth::guard('admin')->validate($request->only('password', 'phone')))
+        if ($validation->fails() || !Auth::guard('admin')->validate($request->only('user_name','password')))
             return $this->error('اسم المستخدم أو كلمة المرور غير صالحة');
         try {
         DB::beginTransaction();
