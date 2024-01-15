@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AgentsController;
 use App\Http\Controllers\Admin\AuthAdminController;
-use App\Http\Controllers\Admin\CourseController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('admin')->group(function (){
+Route::prefix('admin')->group(function () {
     Route::controller(AuthAdminController::class)
         ->prefix('auth')
         ->group(function () {
@@ -26,3 +25,5 @@ Route::prefix('admin')->group(function (){
             Route::post('reset_password', 'resetPassword');
         });
 });
+Route::get('get-agent-tree', [AgentsController::class, 'getAgents']);
+Route::post('add-agent', [AgentsController::class, 'addAgent']);
