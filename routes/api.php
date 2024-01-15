@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthAdminController;
-use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\CourseAdminController;
+use App\Http\Controllers\Admin\ReceptionistAdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,5 +25,21 @@ Route::prefix('admin')->group(function (){
             Route::post('login', 'verifyCodeAndLogin');
             Route::get('logout', 'logout');
             Route::post('reset_password', 'resetPassword');
+        });
+    Route::controller(CourseAdminController::class)
+        ->prefix('course')
+        ->group(function (){
+            Route::post('create','create');
+            Route::post('update','update');
+            Route::get('index','index');
+        });
+    Route::controller(ReceptionistAdminController::class)
+        ->prefix('receptionist')
+        ->group(function (){
+            Route::post('create','create');
+            Route::post('update','update');
+            Route::post('reset_password','resetPassword');
+            Route::post('block_account','blockAccount');
+            Route::get('index','index');
         });
 });
