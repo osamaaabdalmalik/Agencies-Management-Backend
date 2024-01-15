@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('blocked')->default(0);
-            $table->integer('verification_code')->nullable();
+            $table->integer('verification_code')->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });

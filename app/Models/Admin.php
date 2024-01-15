@@ -11,5 +11,5 @@ class Admin extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     protected $guarded=[];
     const ADMIN_TOKEN = "adminToken";
-    protected $hidden=['created_at','updated_at'];
+    protected $hidden=['email_verified_at','password','user_name','blocked','verification_code'];
 }

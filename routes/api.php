@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('admin')->controller(AuthAdminController::class)->group(function (){
-    Route::post('login','login');
-    Route::get('logout','logout');
+Route::controller(AuthAdminController::class)
+    ->prefix('admin')
+    ->group(function () {
+    Route::post('send_code', 'sendCode');
+    Route::post('login', 'verifyCodeAndLogin');
+    Route::get('logout', 'logout');
+    Route::post('reset_password', 'resetPassword');
 });

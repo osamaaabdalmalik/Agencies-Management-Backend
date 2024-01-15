@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class OperationType extends Model
 {
     use HasFactory;
-    const CREATE_CLIENT = 1;
+    const CREATE_COURSE = 1;
 
 }

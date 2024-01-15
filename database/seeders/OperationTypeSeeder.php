@@ -15,7 +15,7 @@ class OperationTypeSeeder extends Seeder
     public function run(): void
     {
         $operations = [
-            'إضافة',
+            'إضافة دورة تدريبية',
             'حذف',
             'تعديل',
         ];
