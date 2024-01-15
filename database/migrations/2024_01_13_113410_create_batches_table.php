@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('batches', function (Blueprint $table) {
             $table->id();
             $table->double('total');
+            $table->string('receipt_number');
             $table->foreignId('agent_id')->constrained('agents');
             $table->foreignId('receptionist_id')->constrained('receptionists');
             $table->timestamps();

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('agents', function (Blueprint $table) {
             $table->id()->startingValue(1000);
             $table->string('password');
+            $table->string('receipt_number');
             $table->foreignId('course_id')->constrained('courses');
             $table->foreignId('client_id')->constrained('clients');
             $table->foreignId('receptionist_id')->nullable()->constrained('receptionists');
