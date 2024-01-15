@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthAdminController;
+use App\Http\Controllers\Admin\CourseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,11 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(AuthAdminController::class)
-    ->prefix('admin')
-    ->group(function () {
-    Route::post('send_code', 'sendCode');
-    Route::post('login', 'verifyCodeAndLogin');
-    Route::get('logout', 'logout');
-    Route::post('reset_password', 'resetPassword');
+Route::prefix('admin')->group(function (){
+    Route::controller(AuthAdminController::class)
+        ->prefix('auth')
+        ->group(function () {
+            Route::post('send_code', 'sendCode');
+            Route::post('login', 'verifyCodeAndLogin');
+            Route::get('logout', 'logout');
+            Route::post('reset_password', 'resetPassword');
+        });
 });
