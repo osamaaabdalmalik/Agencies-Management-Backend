@@ -11,5 +11,5 @@ class Receptionist extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     protected $guarded=[];
-    protected $hidden=['created_at','updated_at'];
+    protected $hidden=['created_at','updated_at','user_name','password'];
 }
