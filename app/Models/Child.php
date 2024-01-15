@@ -5,12 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class Child extends Model
 {
     use HasFactory;
-
-    public function agents()
-    {
-        $this->hasMany(Agent::class);
-    }
+    protected $guarded=[];
 }
